@@ -56,7 +56,6 @@ def addDogtor():
     except:
         db.rollback()
         return render_template('error.html')
-    
 
 
 @app.route('/add_dog', methods=['POST'])
@@ -80,7 +79,6 @@ def addDog():
     except:
         db.rollback()
         return render_template('error.html')
-    
 
 
 @app.route('/add_malady', methods=['POST'])
@@ -100,7 +98,7 @@ def addMalady():
     except:
         db.rollback()
         return render_template('error.html')
-    
+
 
 @app.route('/delete_item', methods=['POST'])
 def deleteItem():
@@ -117,7 +115,7 @@ def deleteItem():
     except:
         db.rollback()
         return render_template('error.html')
-    
+
 
 @app.route('/update_dogtor', methods=['POST'])
 def updateDogtor():
