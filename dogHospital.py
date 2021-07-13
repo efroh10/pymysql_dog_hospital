@@ -13,10 +13,6 @@ db = pymysql.connect(
 
 cursor = db.cursor()
 
-print(cursor.execute('SELECT dogtor_id FROM e_froh.dogtor_table WHERE dogtor_name = "Walter"'))
-
-datum = cursor.fetchone()
-
 
 @app.route('/', methods=['GET'])
 def hello():
@@ -53,8 +49,14 @@ def addDogtor():
         VALUES
             ('{dogtor_title}', '{dogtor_name}');
     """
-    cursor.execute(sql)
-    return render_template('addition.html')
+    try:
+        cursor.execute(sql)
+        db.commit()
+        return render_template('addition.html')
+    except:
+        db.rollback()
+        return render_template('error.html')
+    
 
 
 @app.route('/add_dog', methods=['POST'])
@@ -71,8 +73,14 @@ def addDog():
         VALUES
             ('{name}', {age}, {weight}, '{breed}', {dogtor_id}, {malady_id});
     """
-    cursor.execute(sql)
-    return render_template('addition.html')
+    try:
+        cursor.execute(sql)
+        db.commit()
+        return render_template('addition.html')
+    except:
+        db.rollback()
+        return render_template('error.html')
+    
 
 
 @app.route('/add_malady', methods=['POST'])
@@ -85,9 +93,14 @@ def addMalady():
         VALUES
             ('{name}', {supply_id});
     """
-    cursor.execute(sql)
-    return render_template('addition.html')
-
+    try:
+        cursor.execute(sql)
+        db.commit()
+        return render_template('addition.html')
+    except:
+        db.rollback()
+        return render_template('error.html')
+    
 
 @app.route('/delete_item', methods=['POST'])
 def deleteItem():
@@ -97,9 +110,14 @@ def deleteItem():
         DELETE FROM e_froh.{term}_table
         WHERE {term}_name = '{name}';
     """
-    cursor.execute(sql)
-    return render_template('deletion.html')
-
+    try:
+        cursor.execute(sql)
+        db.commit()
+        return render_template('deletion.html')
+    except:
+        db.rollback()
+        return render_template('error.html')
+    
 
 @app.route('/update_dogtor', methods=['POST'])
 def updateDogtor():
@@ -111,8 +129,13 @@ def updateDogtor():
         SET dogtor_title = '{title}', dogtor_name = '{name}'
         WHERE dogtor_id = {dogtor_id};
     """
-    cursor.execute(sql)
-    return render_template('update.html')
+    try:
+        cursor.execute(sql)
+        db.commit()
+        return render_template('update.html')
+    except:
+        db.rollback()
+        return render_template('error.html')
 
 
 @app.route('/update_dog', methods=['POST'])
@@ -135,5 +158,10 @@ def updateDog():
         malady_id = {malady_id}
     WHERE dog_id = {dog_id};
     """
-    cursor.execute(sql)
-    return render_template('update.html')
+    try:
+        cursor.execute(sql)
+        db.commit()
+        return render_template('update.html')
+    except:
+        db.rollback()
+        return render_template('error.html')
