@@ -1,0 +1,104 @@
+<html>
+    <body>
+        <form action="/universal_search" method="POST">
+            <p>Enter the type (dogtor, dog, malady, supply) and name of the item you'd like to search for:</p>
+            <p>Type:</p>
+            <input type="text" name="term">
+            <p>Name:</p>
+            <input type="text" name="name">
+            <input type="submit" value="Submit"> <!-- value field not necessary when it's Submit-->
+        </form>
+        <form action="/dog_search_results" method="POST">
+            <p>Enter the search type (name or breed) and name or breed of the dog you'd like to see:</p>
+            <p>Search Type:</p>
+            <input type="text" name="term">
+            <p>Name:</p>
+            <input type="text" name="dog">
+            <input type="submit" value="Submit">
+        </form>
+        <form action="/add_dogtor" method="POST">
+            <p>Enter the details of the dogtor you'd like to add:</p>
+            <br>
+            <p>Title:</p>
+            <input type="text" name="title">
+            <p>Name:</p>
+            <input type="text" name="name">
+            <input type="submit">
+        </form>
+        <form action="/add_dog" method="POST">
+            <p>Enter the details of the dog you'd like to add:</p>
+            <br>
+            <p>Name:</p>
+            <input type="text" name="name" required>
+            <p>Age:</p>
+            <input type="number" name="age" required>
+            <p>Weight:</p>
+            <input type="number" name="weight" required>
+            <p>Breed:</p>
+            <input type="text" name="breed" required>
+            <p>Dogtor ID:</p>
+            <input type="number" name="dogtor_id" required>
+            <p>Malady ID:</p>
+            <input type="number" name="malady_id" required>
+            <input type="submit" value="Submit">
+        </form>
+        <form action="/add_malady" method="POST">
+            <p>Enter the details of the malady you'd like to add:</p>
+            <br>
+            <p>Name:</p>
+            <input type="text" name="name">
+            <p>Supply ID:</p>
+            <input type="number" name="supply_id">
+            <input type="submit" value="Submit">
+        </form>
+        <form action="/delete_item" method="POST">
+            <p>Enter the type (dogtor, dog, or malady) and the name of the item you'd like to delete:</p>
+            <p>Type:</p>
+            <input type="text" name="term">
+            <p>Name:</p>
+            <input type="text" name="name">
+            <input type="submit" value="Submit">
+        </form>
+        <!-- <form action="/delete_dog" method="POST">
+            <p>Enter the name of the dog you'd like to delete:</p>
+            <input type="text" name="name">
+            <input type="submit" value="Submit">
+        </form>
+        <form action="/delete_malady" method="POST">
+            <p>Enter the name of the malady you'd like to delete:</p>
+            <input type="text" name="name">
+            <input type="submit" value="Submit"> -->
+        </form>
+        <form action="/update_dogtor" method="POST">
+            <p>Enter the id and new information of the dogtor you'd like to update:</p>
+            <br>
+            <p>ID</p>
+            <input type="number" name="id">
+            <p>Title:</p>
+            <input type="text" name="title">
+            <p>Name:</p>
+            <input type="text" name="name">
+            <input type="submit" value="Submit">
+
+        </form>
+        <form action="/update_dog" method="POST">
+            <p>Enter the id and new information of the dog you'd like to update:</p>
+            <br>
+            <p>ID</p>
+            <input type="number" name="id">
+            <p>Name:</p>
+            <input type="text" name="name">
+            <p>Age:</p>
+            <input type="number" name="age">
+            <p>Weight:</p>
+            <input type="number" name="weight">
+            <p>Breed</p>
+            <input type="text" name="breed">
+            <p>Dogtor ID:</p>
+            <input type="number" name="dogtor_id">
+            <p>Malady ID</p>
+            <input type="number" name="malady_id">
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
